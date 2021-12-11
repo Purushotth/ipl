@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{%block title %}Add Consignor{% endblock title %}
+
+{% block body_content %}
+<div class="main-content">
+<div class="container">
+	<div class="row">
+		 <form class="form-box" method="post" enctype="multipart/form-data">
+             <h2>Add a Consignor</h2>
+             {% csrf_token %}
+                 {% for field in form %}
+                    <div class="form-group required">
+                        <label for="id_{{field.name}}" class="control-label col-md-4  requiredField">{{field.name}}:</label>
+                        <div class="controls col-md-2">
+                            {{field}}
+                        </div>
+                    </div>
+                 {% endfor %}
+                <div class="form-group">
+                    <div class="aab controls col-md-4 "></div>
+                    <div class="controls col-md-2 ">
+                        <input type="submit" class="btn btn btn-primary">
+                    </div>
+                </div>
+        </form>
+	</div>
+</div>  </div>
+{% endblock body_content %}
